@@ -340,7 +340,7 @@ cursordir = $(datadir)/icons/Adwaita-Scarecrow/cursors
 
 # Install .cur/.ani on Windows and X cursors everywhere else
 win_cursors = $(wildcard $(srcdir)/Adwaita-Scarecrow/cursors/*.cur) $(wildcard $(srcdir)/Adwaita-Scarecrow/cursors/*.ani)
-@PLATFORM_WIN32_FALSE@cursor_DATA = $(filter-out $(win_cursors), $(wildcard $(srcdir)/Adwaita/cursors/*))
+@PLATFORM_WIN32_FALSE@cursor_DATA = $(filter-out $(win_cursors), $(wildcard $(srcdir)/Adwaita-Scarecrow/cursors/*))
 @PLATFORM_WIN32_TRUE@cursor_DATA = $(win_cursors)
 @ENABLE_L_XL_VARIANTS_FALSE@cursorldir = 
 @ENABLE_L_XL_VARIANTS_TRUE@cursorldir = $(datadir)/icons/Adwaita-Scarecrow-Large/cursors
