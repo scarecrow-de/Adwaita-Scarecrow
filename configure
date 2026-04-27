@@ -2689,11 +2689,11 @@ ACLOCAL_AMFLAGS="\${ACLOCAL_FLAGS}"
 
 
 # Define the toplevel path here
-themedir="\${datadir}/icons/Adwaita"
+themedir="\${datadir}/icons/Adwaita-Scarecrow"
 
 
 # Input and Output dirs for the rendering
-SVGOUTDIR="Adwaita"
+SVGOUTDIR="Adwaita-Scarecrow"
 
 SVGSRCDIR="src/symbolic"
 

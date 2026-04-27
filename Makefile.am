@@ -4,21 +4,21 @@ SUBDIRS = src win32
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
-cursordir = $(datadir)/icons/Adwaita/cursors
+cursordir = $(datadir)/icons/Adwaita-Scarecrow/cursors
 
 # Install .cur/.ani on Windows and X cursors everywhere else
-win_cursors = $(wildcard $(srcdir)/Adwaita/cursors/*.cur) $(wildcard $(srcdir)/Adwaita/cursors/*.ani)
+win_cursors = $(wildcard $(srcdir)/Adwaita-Scarecrow/cursors/*.cur) $(wildcard $(srcdir)/Adwaita-Scarecrow/cursors/*.ani)
 if PLATFORM_WIN32
 cursor_DATA = $(win_cursors)
 else
-cursor_DATA = $(filter-out $(win_cursors), $(wildcard $(srcdir)/Adwaita/cursors/*))
+cursor_DATA = $(filter-out $(win_cursors), $(wildcard $(srcdir)/Adwaita-Scarecrow/cursors/*))
 endif
 
 if ENABLE_L_XL_VARIANTS
-cursorldir = $(datadir)/icons/Adwaita-Large/cursors
-cursorl_DATA = $(wildcard $(srcdir)/Adwaita-Large/cursors/*)
-cursorxldir = $(datadir)/icons/Adwaita-ExtraLarge/cursors
-cursorxl_DATA = $(wildcard $(srcdir)/Adwaita-ExtraLarge/cursors/*)
+cursorldir = $(datadir)/icons/Adwaita-Scarecrow-Large/cursors
+cursorl_DATA = $(wildcard $(srcdir)/Adwaita-Scarecrow-Large/cursors/*)
+cursorxldir = $(datadir)/icons/Adwaita-Scarecrow-ExtraLarge/cursors
+cursorxl_DATA = $(wildcard $(srcdir)/Adwaita-Scarecrow-ExtraLarge/cursors/*)
 else
 cursorldir =
 cursorl_DATA =
@@ -32,7 +32,7 @@ theme_DATA = $(theme_in_files:.theme.in=.theme)
 THEME_DIRS=$(shell SIZES="$(install_sizes)"; for size in $$SIZES; do for dir in `find $(srcdir)/$(SVGOUTDIR)/$$size/* -type d`; do printf "$$dir,"; done; done; echo "scalable/actions,scalable/apps,scalable/categories,scalable/devices,scalable/emblems,scalable/emotes,scalable/mimetypes,scalable/places,scalable/status,scalable/legacy,scalable/ui,scalable-up-to-32/status,")
 
 %.theme: %.theme.in $(SVGOUTDIR) Makefile
-	dirs="`echo $(THEME_DIRS) | sed -e 's#$(srcdir)/Adwaita/##g'`"; \
+	dirs="`echo $(THEME_DIRS) | sed -e 's#$(srcdir)/Adwaita-Scarecrow/##g'`"; \
 	sed -e "s|\@THEME_DIRS\@|$$dirs|g" < $< > $@; \
 	for dir in `echo $$dirs | sed -e "s/,/ /g"`; do \
 		sizefull="`dirname $$dir`"; \
@@ -224,7 +224,7 @@ pkgconfig_DATA = adwaita-icon-theme.pc
 
 EXTRA_DIST =			\
 	adwaita-icon-theme.pc.in  \
-	Adwaita			\
+	Adwaita-Scarecrow			\
 	COPYING_CCBYSA3		\
 	COPYING_LGPL		\
 	README.md		\
